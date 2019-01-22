@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>S1L2</title>
+</head>
+<body>
+    <main>
+
+        <template v-if=sesionIniciada>
+                <h1 >La sesión está iniciada</h1>
+
+
+                <h1 v-if="edad < 18">Eres un menor de edad</h1>
+                <h1 v-else-if="edad > 18 && edad < 21">Estas casi cumpliendo mayoría de edad</h1>
+                <h1 v-else-if="edad > 21">Eres mayor de edad!</h1>
+                <h1 v-else>Tienes 18 o 21 años, las edades de oro.</h1>
+        </template>
+        <template v-else>
+                <h1 >La sesión NO está iniciada, proceda a iniciarla</h1>
+        </template>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
