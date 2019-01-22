@@ -25,6 +25,11 @@ var app =  new Vue({
             }
          ]
     },
+    methods:{
+        personasMayores:function(){
+            return this.personas.filter(x=>x.edad >= 18);
+        }
+    },
     computed:{
         mensajeReverso: function(){
             return this.mensaje.split('').reverse().join('');
