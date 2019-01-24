@@ -1,30 +1,24 @@
-
+Vue.filter('filtroNombre', function(nombre){
+    return `${nombre.title} ${nombre.first} ${nombre.last}`;
+})
 
 var app =  new Vue({
     el:'main',
+ 
     data:{
-        tareas: 
-        [
-            {
-                nombre:'Aprender Vue',
-                prioridad:1,
-                terminada:false
-            },
-            {
-                nombre:'Comprar pan',
-                prioridad:3,
-                terminada:false
-            },
-            {
-                nombre:'Traer leche',
-                prioridad:4,    
-                terminada:false
-            },
-        ]
+        personas: []
+        
     },
+    mounted:function(){
+        this.cargarPersonas();
+},
     methods:{
-        alternarValores(tarea){
-            tarea.terminada = !tarea.terminada;
+        cargarPersonas(tarea){
+            axios.get("https://randomuser.me/api/?results=500").then(response => {
+                this.personas = response.data.results;
+            }).catch(response => {
+
+            })
         }
     }
 })
